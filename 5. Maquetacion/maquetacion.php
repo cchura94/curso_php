@@ -12,6 +12,7 @@
         <h2>Bienvenido a mi Página Web</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet maxime culpa doloribus voluptatibus dolor libero quod eum .</p>
     </div>
+    
     <div class="menu">
         <a href="./inicio.php">INICIO</a>
         <a href="./servicio.php">SERVICIOS</a>
