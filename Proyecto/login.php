@@ -6,6 +6,14 @@ include('./includes/cabecera.php');
     <div class="row ">
         <div class="col-md-12 text-center">
             <h1>Inicio de Sesion</h1>
+            <?php 
+                session_start();
+                if(isset($_SESSION["auth"])){
+                    header("Location: ./vistas/admin/index.php");
+                }
+                
+            
+            ?>
         </div>       
 
     </div>
@@ -18,11 +26,15 @@ include('./includes/cabecera.php');
             $error='';
             if(isset($_GET['error'])){
                 $error = $_GET['error'];
-            }
         ?>
         <div class="alert alert-danger">
             <p><?= $error ?></p>
         </div>
+        <?php
+                
+            }
+        ?>
+        
         <form action="./control.php" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Ingrese su Correo</label>
