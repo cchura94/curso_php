@@ -6,6 +6,11 @@ require_once("./../../../models/Usuario.php");
     $datos = $u->lista();
 
 ?>
+
+
+<?php
+require_once("./../../../layouts/cabecera.php");
+?>
 <a href="./nuevo.php">Nuevo Usuario</a>
 <table border="1">
 <tr>
@@ -26,3 +31,6 @@ foreach($datos as $us){
 </tr>
 <?php } ?>
 </table>
+<?php
+require_once("./../../../layouts/pie.php");
+?>

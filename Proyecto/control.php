@@ -12,6 +12,8 @@ if($_POST){
     if($verif){
         $sesion = new Sesiones;
         $sesion->crear_sesion($c);
+        //Creamos una cookie
+        setcookie("ses", "activo", time() + 30);
         header("Location: ./vistas/admin/index.php");
     }else{
         $error = "Usuario incorrecto";
