@@ -12,7 +12,6 @@ $dir_raiz = "//". $_SERVER["HTTP_HOST"] . "/php/Proyecto";
 $dir_static = $dir_raiz . "/public";
 $dir_vista =  $dir_raiz . "/vistas/admin";
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
