@@ -3,7 +3,7 @@ require_once("./../../../layouts/cabecera.php");
 ?>
 
 
-Lista de Productos
+Lista de Categorias
 
 
 <?php

@@ -2,8 +2,7 @@
 require_once("./../../../layouts/cabecera.php");
 ?>
 
-
-Lista de Productos
+Nueva Categoria
 
 
 <?php

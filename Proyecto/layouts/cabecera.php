@@ -7,8 +7,10 @@ if(!isset($_COOKIE["ses"])){
   session_destroy();
   header("Location: ./../../login.php");
 }
-
-
+// http://localhost/php/Proyecto/public
+$dir_raiz = "//". $_SERVER["HTTP_HOST"] . "/php/Proyecto";
+$dir_static = $dir_raiz . "/public";
+$dir_vista =  $dir_raiz . "/vistas/admin";
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +23,11 @@ if(!isset($_COOKIE["ses"])){
   <title>AdminLTE 3 | Dashboard 2</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="./../../public/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo $dir_static; ?>/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="./../../public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="<?= $dir_static ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="./../../public/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= $dir_static ?>/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -154,7 +156,7 @@ if(!isset($_COOKIE["ses"])){
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="./index.php" class="brand-link">
-      <img src="../../public/img/logo.gif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="<?= $dir_static ?>/img/logo.gif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">EMPRESA</span>
     </a>
@@ -164,7 +166,7 @@ if(!isset($_COOKIE["ses"])){
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./../../public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= $dir_static ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $_SESSION["usuario"]; ?></a>
@@ -172,7 +174,7 @@ if(!isset($_COOKIE["ses"])){
         
       </div>
       <div class="">
-      <img src="../../public/img/logo.gif" width="100%" height="100px" alt="">
+      <img src="<?= $dir_static ?>/img/logo.gif" width="100%" height="100px" alt="">
       </div>
 
       <!-- Sidebar Menu -->
@@ -190,13 +192,13 @@ if(!isset($_COOKIE["ses"])){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./producto/index.php" class="nav-link">
+                <a href="<?= $dir_vista ?>/producto/index.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista Productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./producto/nuevo.php" class="nav-link active">
+                <a href="<?= $dir_vista ?>/producto/nuevo.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Producto</p>
                 </a>
@@ -209,20 +211,20 @@ if(!isset($_COOKIE["ses"])){
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Categoria
+                CATEGORIA
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="<?= $dir_vista ?>/categoria/index.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista Categorias</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="<?= $dir_vista ?>/categoria/nuevo.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nueva Categoria</p>
                 </a>
@@ -264,13 +266,13 @@ if(!isset($_COOKIE["ses"])){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./usuario/lista.php" class="nav-link">
+                <a href="<?= $dir_vista ?>/usuario/lista.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lista Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./usuario/nuevo.php" class="nav-link">
+                <a href="<?= $dir_vista ?>/usuario/nuevo.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Usuario</p>
                 </a>

@@ -12,15 +12,24 @@ class Usuario extends Conexion
 
     }
 
+    public function bucarUsuario($id)
+    {
+        $sql = "SELECT * from usuarios where id = $id";
+        $usuario = Conexion::consultaRetorno($sql);
+        return $usuario->fetchAll()[0];
+    }
+
     public function guardar($nom, $co, $clave)
     {
         $sql = "INSERT into usuarios (nombre, correo, clave) values('$nom', '$co', '$clave')";
+    
         Conexion::consultaSimple($sql);
     }
 
-    public function modificar($nom, $co, $clave)
+    public function modificar($nom, $co, $clave, $id)
     {
-        $sql = "INSERT into usuarios (nombre, correo, clave) values('$nom', '$co', '$clave')";
+        $sql = "UPDATE usuarios set nombre='$nom', correo = '$co', clave = '$clave' where id = $id";
+        
         Conexion::consultaSimple($sql);
     }
 

@@ -13,7 +13,7 @@ if($_POST){
         $sesion = new Sesiones;
         $sesion->crear_sesion($c);
         //Creamos una cookie
-        setcookie("ses", "activo", time() + 30);
+        setcookie("ses", "activo", time() + (60*60));
         header("Location: ./vistas/admin/index.php");
     }else{
         $error = "Usuario incorrecto";

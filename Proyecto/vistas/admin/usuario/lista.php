@@ -11,8 +11,8 @@ require_once("./../../../models/Usuario.php");
 <?php
 require_once("./../../../layouts/cabecera.php");
 ?>
-<a href="./nuevo.php">Nuevo Usuario</a>
-<table border="1">
+<a href="./nuevo.php" class="btn btn-success">Nuevo Usuario</a>
+<table class="table table-striped table-hover">
 <tr>
     <td>ID</td>
     <td>NOMBRE</td>
@@ -27,7 +27,9 @@ foreach($datos as $us){
     <td><?= $us['id'] ?></td>
     <td><?= $us['nombre'] ?></td>
     <td><?= $us['correo'] ?></td>
-    <td>ACCIONES</td>
+    <td>
+        <a href="./editar.php?id=<?= $us['id'] ?>" class="btn btn-warning">Editar</a>
+    </td>
 </tr>
 <?php } ?>
 </table>

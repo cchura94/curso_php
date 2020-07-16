@@ -1,5 +1,6 @@
 
 <?php
+require_once("./../../../layouts/cabecera.php");
 require_once("./../../../models/Usuario.php");
 if($_POST){
     $nom = $_POST['nombre'];
@@ -13,15 +14,25 @@ if($_POST){
 
 ?>
 
-<form action="" method="post">
+<div class="row">
+    <div class="col-md-6">
+
+    <form action="" method="post">
 <label for="">Nombre:</label>
-    <input type="text" name="nombre">
+    <input type="text" name="nombre" class="form-control">
     <br>
     <label for="">Correo:</label>
-    <input type="email" name="correo">
+    <input type="email" name="correo" class="form-control">
     <br>
     <label for="">Contraseña:</label>
-    <input type="password" name="clave">
+    <input type="password" name="clave" class="form-control">
      <br>
      <input type="submit">
 </form>
+    
+    </div>
+</div>
+
+<?php
+require_once("./../../../layouts/pie.php");
+?>
