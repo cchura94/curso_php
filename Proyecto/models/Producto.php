@@ -12,9 +12,9 @@ class Producto extends Conexion
         return  Conexion::consultaRetorno($sql);
     }
 
-    public function guardar($nom, $cant, $precio, $imagen, $des)
+    public function guardar($nom, $cant, $precio, $imagen, $des, $cat_id)
     {
-        $sql = "INSERT into productos (nombre, cantidad,precio, imagen, descripcion) values('$nom', $cant,$precio, '$imagen', '$des')";
+        $sql = "INSERT into productos (nombre, cantidad, precio, imagen, descripcion, categoria_id, proveedor_id) values('$nom', $cant,$precio, '$imagen', '$des', $cat_id, 1)";
         Conexion::consultaSimple($sql);
     }
 
@@ -25,9 +25,9 @@ class Producto extends Conexion
         return $categoria->fetchAll()[0];
     }
 
-    public function modificar($nom, $cant, $precio, $imagen, $des, $id)
+    public function modificar($nom, $cant, $precio, $imagen, $des, $cat_id, $id)
     {
-        $sql = "UPDATE productos set nombre = '$nom', cantidad=$cant, precio=$precio, imagen='$imagen', descripcion = '$des' where id = $id";
+        $sql = "UPDATE productos set nombre = '$nom', cantidad=$cant, precio=$precio, imagen='$imagen', descripcion = '$des', categoria_id = $cat_id where id = $id";
         Conexion::consultaSimple($sql);
     }
 

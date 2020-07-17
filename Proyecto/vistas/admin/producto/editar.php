@@ -2,10 +2,13 @@
 require_once("./../../../layouts/cabecera.php");
 require_once("./../../../models/Categoria.php");
 require_once("./../../../models/Producto.php");
+$prod = new Producto;
+$id = $_GET['id'];
+$producto = $prod->mostrar($id);
 
 $c = new Categoria;
 $categorias = $c->lista();
-    
+
 //GUARDAR PRODUCTO
 if($_POST){
     //obteniendo imagen
@@ -31,8 +34,8 @@ if($_POST){
     $d = $_POST["descripcion"]; 
      
 
-    $prod = new Producto;
-    $prod->guardar($n,$cant,$precio,$img,$d, $cat_id);
+    
+    $prod->modificar($n,$cant,$precio,$img,$d, $cat_id, $id);
 
     //header("Location: /index.php");
     ?>
@@ -46,19 +49,19 @@ if($_POST){
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h1>Nuevo Producto</h1>
+            <h1>Editar Producto</h1>
 
             <form action="" method="post" enctype="multipart/form-data">
                 <label for="">Nombre:</label>
-                <input type="text" name="nombre" class="form-control">
+                <input type="text" name="nombre" class="form-control" value="<?= $producto['nombre'] ?>">
                 <label for="">Cantidad:</label>
-                <input type="number" name="cantidad" class="form-control">
+                <input type="number" name="cantidad" class="form-control" value="<?= $producto['cantidad'] ?>">
                 <label for="">Precio:</label>
-                <input type="number" step="0.01" name="precio" class="form-control">
+                <input type="number" step="0.01" name="precio" class="form-control" value="<?= $producto['precio'] ?>">
                 <label for="">Imagen:</label>
                 <input type="file" name="imagen" class="form-control">
                 <label for="">Descripción:</label>
-                <textarea name="descripcion" class="form-control"></textarea>
+                <textarea name="descripcion" class="form-control"><?= $producto['nombre'] ?></textarea>
                 <label for="">Categoria:</label>
                 <select name="categoria_id" id="" class="form-control">
                     <option value="">Seleccione una opcion</option>
