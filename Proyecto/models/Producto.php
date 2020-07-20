@@ -37,6 +37,21 @@ class Producto extends Conexion
         Conexion::consultaSimple($sql);
     }
 
+    public function buscar($buscar)
+    {
+        $sql = "SELECT * from productos where nombre like '%$buscar%'";
+        
+        return  Conexion::consultaRetorno($sql);
+    }
+    
+    public function imprimir($id)
+    {
+        $sql = "SELECT * from productos where id =$id";
+        
+        return  Conexion::consultaRetorno($sql);
+    }
+
+
 }
 
 
